@@ -1,94 +1,94 @@
 import { useState, useEffect } from "react";
 
 const C = {
-  bg:      "#0a0a0a",
+  bg: "#0a0a0a",
   sidebar: "#111111",
-  panel:   "#181818",
-  border:  "#2a2a2a",
-  accent:  "#FFCC00",
-  text:    "#e2e8f0",
-  muted:   "#666666",
+  panel: "#181818",
+  border: "#2a2a2a",
+  accent: "#FFCC00",
+  text: "#e2e8f0",
+  muted: "#666666",
   comment: "#555555",
   lineNum: "#444444",
 };
 
 const NAV_LINKS = [
-  { label: "Home",         id: "home" },
-  { label: "Sobre",        id: "sobre" },
-  { label: "Projetos",     id: "projetos" },
+  { label: "Home", id: "home" },
+  { label: "Sobre", id: "sobre" },
+  { label: "Projetos", id: "projetos" },
   { label: "Certificados", id: "certificados" },
-  { label: "Contato",      id: "contato" },
+  { label: "Contato", id: "contato" },
 ];
 
 const SKILLS = [
   { name: "React", level: 85 },
-  { name: "PHP / Laravel",  level: 80 },
-  { name: "HTML & CSS",     level: 90 },
-  { name: "Python",   level: 75 },
-  { name: "Git",            level: 82 },
-  { name: "C#",             level: 65 },
-  { name: "Power BI",       level: 50 },
-  { name: "Figma",          level: 80 },
+  { name: "PHP / Laravel", level: 80 },
+  { name: "HTML & CSS", level: 90 },
+  { name: "Python", level: 75 },
+  { name: "C#", level: 80 },
+  { name: "GML", level: 75 },
+  { name: "Power BI", level: 50 },
+  { name: "Flutter", level: 80 },
 ];
 
 const PROJECTS = [
   {
-    title:  "E-commerce App",
-    desc:   "Plataforma completa de vendas com painel admin, pagamentos e gestão de estoque em tempo real.",
-    tags:   ["React", "Node.js", "Stripe"],
-    year:   "2024",
-    banner: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+    title: "Landing Page - Sol Tortas",
+    desc: "Plataforma completa de vendas com painel admin, pagamentos e gestão de estoque em tempo real.",
+    tags: ["React", "Node.js", "Stripe"],
+    year: "2024",
+    banner: "\sol.png",
   },
   {
-    title:  "Dashboard Analytics",
-    desc:   "Dashboard interativo com gráficos em tempo real e relatórios personalizáveis por usuário.",
-    tags:   ["Next.js", "Chart.js", "REST API"],
-    year:   "2024",
+    title: "Dashboard Analytics",
+    desc: "Dashboard interativo com gráficos em tempo real e relatórios personalizáveis por usuário.",
+    tags: ["Next.js", "Chart.js", "REST API"],
+    year: "2024",
     banner: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
   },
   {
-    title:  "Task Manager",
-    desc:   "App de produtividade com drag-and-drop, colaboração em tempo real e notificações push.",
-    tags:   ["React", "Socket.io", "MongoDB"],
-    year:   "2023",
-    banner: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&q=80",
+    title: "Task Manager",
+    desc: "App de produtividade com drag-and-drop, colaboração em tempo real e notificações push.",
+    tags: ["React", "MongoDB"],
+    year: "2023",
+    banner: "\imgflow.png",
   },
   {
-    title:  "The Cursed Mark",
-    desc:   "Jogo criado no Game Maker, baseado em Zelda, com foco em exploração e resolução de puzzles.",
-    tags:   ["Game Maker", "GML"],
-    year:   "2023",
+    title: "The Cursed Mark",
+    desc: "Jogo criado no Game Maker, baseado em Zelda, com foco em exploração e resolução de puzzles.",
+    tags: ["Game Maker", "GML"],
+    year: "2023",
     banner: "\cursed.gif",
   },
 ];
 
 const CERTIFICATES = [
   {
-    title:  "Fortinet Certified Fundamentals in Cybersecurity",
+    title: "Fortinet Certified Fundamentals in Cybersecurity",
     issuer: "Fortinet",
-    date:   "2024",
-    desc:   "Desenvolvimento de habilidades em segurança cibernética, cobrindo fundamentos de redes, ameaças e proteção de sistemas.",
+    date: "2024",
+    desc: "Desenvolvimento de habilidades em segurança cibernética, cobrindo fundamentos de redes, ameaças e proteção de sistemas.",
     banner: "\cyber.jpg",
   },
   {
-    title:  "Fortinet Cloud Security",
+    title: "Fortinet Cloud Security",
     issuer: "Fortinet",
-    date:   "2024",
-    desc:   "Conhecimento em segurança em nuvem e habilidades em configuração de segurança em ambientes cloud.",
+    date: "2024",
+    desc: "Conhecimento em segurança em nuvem e habilidades em configuração de segurança em ambientes cloud.",
     banner: "\cloud.jpg",
   },
   {
-    title:  "Laravel 10 Essencial",
+    title: "Laravel 10 Essencial",
     issuer: "Udemy",
-    date:   "2024",
-    desc:   "Desenvolvimento de aplicações em Laravel 10 com padrão MVC e gerenciamento de banco de dados com Migrations.",
+    date: "2024",
+    desc: "Desenvolvimento de aplicações em Laravel 10 com padrão MVC e gerenciamento de banco de dados com Migrations.",
     banner: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80",
   },
   {
-    title:  "Técnico em Desenvolvimento de Sistemas",
+    title: "Técnico em Desenvolvimento de Sistemas",
     issuer: "Etec Antônio de Pádua Cardoso",
-    date:   "2022",
-    desc:   "Formação técnica em desenvolvimento de sistemas com fundamentos de programação, banco de dados e engenharia de software.",
+    date: "2022",
+    desc: "Formação técnica em desenvolvimento de sistemas com fundamentos de programação, banco de dados e engenharia de software.",
     banner: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&q=80",
   },
 ];
@@ -112,16 +112,16 @@ function useIsMobile() {
 function useTyping(words, speed) {
   const spd = speed || 90;
   const [displayed, setDisplayed] = useState("");
-  const [wi, setWi]   = useState(0);
-  const [ci, setCi]   = useState(0);
+  const [wi, setWi] = useState(0);
+  const [ci, setCi] = useState(0);
   const [del, setDel] = useState(false);
   useEffect(() => {
     const word = words[wi];
     let t;
-    if (!del && ci < word.length)        t = setTimeout(() => setCi(ci + 1), spd);
-    else if (!del && ci === word.length)  t = setTimeout(() => setDel(true), 1600);
-    else if (del && ci > 0)              t = setTimeout(() => setCi(ci - 1), spd / 2);
-    else if (del && ci === 0)            { setDel(false); setWi((wi + 1) % words.length); }
+    if (!del && ci < word.length) t = setTimeout(() => setCi(ci + 1), spd);
+    else if (!del && ci === word.length) t = setTimeout(() => setDel(true), 1600);
+    else if (del && ci > 0) t = setTimeout(() => setCi(ci - 1), spd / 2);
+    else if (del && ci === 0) { setDel(false); setWi((wi + 1) % words.length); }
     setDisplayed(word.slice(0, ci));
     return () => clearTimeout(t);
   }, [ci, del, wi, words, spd]);
@@ -465,9 +465,9 @@ function Hero() {
               Entre em Contato →
             </button>
             {[
-              { icon: <IcoGithub />,   href: "https://github.com/thalessantos-dev" },
+              { icon: <IcoGithub />, href: "https://github.com/thalessantos-dev" },
               { icon: <IcoLinkedin />, href: "https://linkedin.com/in/thalesc-santos" },
-              { icon: <IcoEmail />,    href: "mailto:thalescsantos14@gmail.com" },
+              { icon: <IcoEmail />, href: "mailto:thalescsantos14@gmail.com" },
             ].map(({ icon, href }, i) => (
               <a
                 key={i} href={href} target="_blank" rel="noreferrer"
@@ -545,6 +545,85 @@ function Hero() {
   );
 }
 
+
+const SERVICES = [
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    title: "Desenvolvimento Full Stack",
+    desc: "Aplicações web e mobile com Flutter, PHP/Laravel, React, Python e C#. Do back ao front, do banco à interface.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
+      </svg>
+    ),
+    title: "Gestão, Dados & Automações",
+    desc: "Coordenação de projetos com Jira e Scrum, análise com Power BI e SQL, automações no Salesforce, VBA e Microsoft 365.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
+      </svg>
+    ),
+    title: "UI/UX & Prototipagem",
+    desc: "Criação de telas e protótipos no Figma com foco em usabilidade, fluxo intuitivo e design funcional.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="6" width="20" height="14" rx="2" />
+        <path d="M6 10h2v4H6z" /><path d="M16 10h.01" /><path d="M18 12h.01" />
+        <path d="M16 14h.01" /><path d="M6 6V4" /><path d="M18 6V4" />
+      </svg>
+    ),
+    title: "Desenvolvimento de Jogos",
+    desc: "Criação de jogos 2D com Game Maker, GML e Unity.",
+  },
+];
+
+function ServiceCard({ svc }) {
+  const [hov, setHov] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        background: hov ? "rgba(255,204,0,0.04)" : C.bg,
+        border: "1px solid " + (hov ? "rgba(255,204,0,0.25)" : C.border),
+        borderRadius: 10, padding: "24px 22px",
+        transition: "all 0.25s ease",
+        transform: hov ? "translateY(-4px)" : "none",
+        boxShadow: hov ? "0 12px 32px rgba(0,0,0,0.35)" : "none",
+        cursor: "default", position: "relative", overflow: "hidden",
+      }}
+    >
+      {hov && (
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: 2,
+          background: "linear-gradient(90deg, #FFCC00, #ffaa00)",
+        }} />
+      )}
+      <div style={{
+        width: 44, height: 44, borderRadius: 10, marginBottom: 18,
+        background: hov ? "rgba(255,204,0,0.15)" : "rgba(255,204,0,0.08)",
+        border: "1px solid " + (hov ? "rgba(255,204,0,0.35)" : "rgba(255,204,0,0.15)"),
+        display: "flex", alignItems: "center", justifyContent: "center",
+        color: "#FFCC00", transition: "all 0.25s",
+      }}>
+        {svc.icon}
+      </div>
+      <h3 style={{ fontSize: 14, fontWeight: 700, color: C.text, marginBottom: 10, lineHeight: 1.4 }}>{svc.title}</h3>
+      <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.7 }}>{svc.desc}</p>
+    </div>
+  );
+}
+
 function About() {
   const mob = useIsMobile();
   const CV_URL = "https://drive.google.com/file/d/1-qaWwHUOGpuJdYdBNatcq75fZaJzWWzr/view?usp=sharing";
@@ -598,6 +677,16 @@ function About() {
                 }} />
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── O que eu faço ── */}
+      <div style={{ maxWidth: 1100, margin: "48px auto 0" }}>
+        <p style={{ fontFamily: "'Fira Code', monospace", fontSize: 12, color: C.comment, marginBottom: 20 }}>{"// o_que_eu_faço[]"}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(4, 1fr)", gap: 16 }}>
+          {SERVICES.map((svc, i) => (
+            <ServiceCard key={i} svc={svc} />
           ))}
         </div>
       </div>
@@ -679,7 +768,7 @@ function Projects() {
 function Certificates() {
   const mob = useIsMobile();
   const [hovered, setHovered] = useState(null);
-  const [modal, setModal]     = useState(null);
+  const [modal, setModal] = useState(null);
 
   return (
     <section id="certificados" style={{ padding: mob ? "60px 24px" : "100px 60px", background: C.sidebar, borderTop: "1px solid " + C.border }}>
@@ -742,10 +831,10 @@ function Certificates() {
 function Contact() {
   const mob = useIsMobile();
   const CONTACTS = [
-    { icon: <IcoWhatsapp />, label: "WhatsApp",  desc: "Resposta rápida",               href: "https://wa.me/5516999776125",           color: "#25D366" },
-    { icon: <IcoEmail />,    label: "E-mail",     desc: "thalescsantos14@gmail.com",      href: "mailto:thalescsantos14@gmail.com",       color: C.accent },
-    { icon: <IcoGithub />,   label: "GitHub",     desc: "github.com/thalessantos-dev",    href: "https://github.com/thalessantos-dev",    color: C.text },
-    { icon: <IcoLinkedin />, label: "LinkedIn",   desc: "linkedin.com/in/thalesc-santos", href: "https://linkedin.com/in/thalesc-santos", color: "#0A66C2" },
+    { icon: <IcoWhatsapp />, label: "WhatsApp", desc: "Resposta rápida", href: "https://wa.me/5516999776125", color: "#25D366" },
+    { icon: <IcoEmail />, label: "E-mail", desc: "thalescsantos14@gmail.com", href: "mailto:thalescsantos14@gmail.com", color: C.accent },
+    { icon: <IcoGithub />, label: "GitHub", desc: "github.com/thalessantos-dev", href: "https://github.com/thalessantos-dev", color: C.text },
+    { icon: <IcoLinkedin />, label: "LinkedIn", desc: "linkedin.com/in/thalesc-santos", href: "https://linkedin.com/in/thalesc-santos", color: "#0A66C2" },
   ];
 
   return (
